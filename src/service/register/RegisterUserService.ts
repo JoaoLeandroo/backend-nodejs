@@ -1,5 +1,6 @@
 import { z } from "zod"
 import { prisma } from "../../prisma/prisma"
+import { hash } from "bcryptjs";
 
 interface RegisterUserProps {
     name: string;
@@ -26,6 +27,8 @@ class RegisterUserService {
             where: {name: nameLowerCase}
         })
 
+        const passwordHash = await hash(password, 8)
+
         if(userAlreadyExists) {
             return { message: "Usuario já registrado!" }
         }
@@ -34,7 +37,7 @@ class RegisterUserService {
         const user = await prisma.usuario.create({
             data: {
                 name: nameLowerCase,
-                password: password,
+                password: passwordHash,
             }
         })
 
