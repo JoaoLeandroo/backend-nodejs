@@ -31,7 +31,7 @@ class AuthUserService {
 
         if(!AlreadyExistUser) {
             return {
-                Error: {message: "Usuario ou senha inválidos."}
+                Error: {message: "Usuario ou senha inválido."}
             }
         }
 
@@ -39,14 +39,27 @@ class AuthUserService {
 
         if(!passwordCompare) {
             return {
-                Error: {message: "Usuario ou senha inválidos!!!!"}
+                Error: {message: "Usuario ou senha inválido."}
             }
         }
+
+        const token = sign(
+            {
+                id: AlreadyExistUser.id,
+                name: AlreadyExistUser.name
+            },
+            process.env.JWT_SECRET,
+            {
+                subject: AlreadyExistUser.id,
+                expiresIn: "30d"
+            },
+        )
 
         return {
             id: AlreadyExistUser.id,
             name: AlreadyExistUser.name,
             lastVisit: AlreadyExistUser.updateAt,
+            token: token,
         }
 
     }
