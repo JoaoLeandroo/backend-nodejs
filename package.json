@@ -4,11 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "prisma generate",
-    "build": "prisma generate && tsc",
-    "start": "node dist/index.js",
     "dev": "ts-node-dev ./src/index.ts",
-    "vercel-build": "npx prisma migrate deploy"
+    "build": "prisma generate && tsc",
+    "start": "node dist/index.js"
   },
   "keywords": [],
   "author": "",
