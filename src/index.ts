@@ -23,4 +23,4 @@ server.use((erro: Error, request: Request, response: Response, next: NextFunctio
 })
 
 
-server.listen(5353, () => console.log("Servidor rodando em: https://backend-nodejs-hazel.vercel.app/"))
+server.listen(5353, () => console.log("Servidor rodando em: https://backend-nodejs-tqd5.onrender.com"))
