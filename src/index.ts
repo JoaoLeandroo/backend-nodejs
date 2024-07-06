@@ -18,7 +18,7 @@ server.use((erro: Error, request: Request, response: Response, next: NextFunctio
 
     return response.status(500).json({
         status: "error",
-        message: "Internal server error"
+        message: "Internal server error!!"
     })
 })
 

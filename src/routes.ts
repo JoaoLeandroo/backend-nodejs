@@ -14,7 +14,7 @@ router.get("/", (request, response) => {
 router.post("/register", new RegisterUserController().handle )
 router.post("/session", new AuthUserController().handle)
 
-router.get("/check-user", new CheckUserController().handle)
+router.post("/check-user", new CheckUserController().handle)
 
 router.get("/list", isAuthentication, new ListUserController().handle )
 
