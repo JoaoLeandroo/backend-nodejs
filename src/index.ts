@@ -23,4 +23,4 @@ server.use((erro: Error, request: Request, response: Response, next: NextFunctio
 })
 
 
-server.listen("https://backend-nodejs-tqd5.onrender.com", () => console.log("Servidor rodando em: https://backend-nodejs-tqd5.onrender.com"))
+server.listen(5353, () => console.log("Servidor rodando em: https://backend-nodejs-tqd5.onrender.com"))
